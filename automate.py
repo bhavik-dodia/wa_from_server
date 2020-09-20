@@ -1,3 +1,4 @@
+import os
 import sys
 import time
 import requests
@@ -11,11 +12,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 def send_data(users, url, msg=''):
 
     options = webdriver.ChromeOptions()
-
+    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     options.add_argument("user-data-dir=C:\\Users\\BHAVIK DODIA\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1")
 
     # opens the chrome browser
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
 
     # opens WhatsApp Web in browser
     driver.get('http://web.whatsapp.com')
