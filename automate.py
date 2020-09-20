@@ -1,7 +1,7 @@
 import sys
 import time
 import requests
-import winclip32
+# import winclip32
 from io import BytesIO
 from PIL import Image
 from selenium import webdriver
@@ -22,9 +22,9 @@ def send_data(users, url, msg=''):
 
     response = requests.get(url)
 
-    output = BytesIO()
-    Image.open(BytesIO(response.content)).convert('RGB').save(output, 'BMP')
-    winclip32.set_clipboard_data(winclip32.BITMAPINFO_STD_STRUCTURE, output.getvalue()[14:])
+    # output = BytesIO()
+    # Image.open(BytesIO(response.content)).convert('RGB').save(output, 'BMP')
+    # winclip32.set_clipboard_data(winclip32.BITMAPINFO_STD_STRUCTURE, output.getvalue()[14:])
 
     time.sleep(30)
 
